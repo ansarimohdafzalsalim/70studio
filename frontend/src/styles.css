@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-base: 10 10 10;
+  --color-surface: 17 17 17;
+  --color-muted: 136 136 136;
+  --color-ink: 245 245 240;
+  color: rgb(var(--color-ink));
+  background: rgb(var(--color-base));
+  font-family: Inter, sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --color-base: 247 247 242;
+  --color-surface: 255 255 255;
+  --color-muted: 94 94 88;
+  --color-ink: 18 18 16;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: rgb(var(--color-base));
+  color: rgb(var(--color-ink));
+  padding-bottom: 96px;
+  transition: background-color 240ms ease, color 240ms ease;
+}
+
+::selection {
+  color: #f5f5f0;
+  background: #5c4eff;
+}
+
+.container-pad {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition;
+}
+
+.btn-accent {
+  @apply bg-accent text-white hover:bg-ink hover:text-base;
+}
+
+.btn-ghost {
+  @apply border border-ink/15 text-ink hover:border-accent hover:text-accent;
+}
+
+.section {
+  @apply py-14 sm:py-20;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+:root[data-theme='light'] .theme-ambient {
+  opacity: 0.5;
+}
+
+:root[data-theme='light'] .theme-glass {
+  box-shadow: 0 18px 60px rgb(18 18 16 / 0.1);
+}
+
+:root[data-theme='light'] .border-white\/5,
+:root[data-theme='light'] .border-white\/10 {
+  border-color: rgb(var(--color-ink) / 0.1);
+}
+
+:root[data-theme='light'] .border-white\/15,
+:root[data-theme='light'] .border-white\/20 {
+  border-color: rgb(var(--color-ink) / 0.16);
+}
+
+:root[data-theme='light'] .bg-white\/5 {
+  background-color: rgb(var(--color-ink) / 0.05);
+}
+
+:root[data-theme='light'] .bg-white\/10 {
+  background-color: rgb(var(--color-ink) / 0.1);
+}
+
+:root[data-theme='light'] .text-white\/10 {
+  color: rgb(var(--color-ink) / 0.1);
+}
+
+:root[data-theme='light'] .text-white\/50 {
+  color: rgb(var(--color-ink) / 0.5);
+}
+
+:root[data-theme='light'] .text-white\/80 {
+  color: rgb(var(--color-ink) / 0.8);
+}
+
+:root[data-theme='light'] .hover\:text-white:hover {
+  color: rgb(var(--color-ink));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
